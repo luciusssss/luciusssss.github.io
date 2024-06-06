@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KWZSG6PHY8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-KWZSG6PHY8');
+    </script>
+
+    <script src="https://kit.fontawesome.com/f8ddf9854a.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="description"
+        content="MC^2: Towards Transparent and Culturally-Aware NLP for Minority Languages in China">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MC^2</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <!-- <link rel="icon" href="./static/images/icon.svg"> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/explorer-index.js"></script>
+    <script src="./static/js/question_card.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+
+                <a class="navbar-item" href="https://luciusssss.github.io">
+                    <span class="icon">
+                        <i class="fas fa-home"></i>
+                    </span>
+                </a>
+                <a class="navbar-item" href="https://luciusssss.github.io/proj/mc2">
+                    <b>MC<sup>2</sup> Corpus</b>
+                </a>
+                <a class="navbar-item" href="https://luciusssss.github.io/proj/zhuangbench">
+                    ZhuangBench
+                </a>
+                <!-- <a class="navbar-item" href="https://luciusssss.github.io/proj/mlic_eval">
+                    MLiC-Eval
+                </a> -->
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        More
+                    </a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="">
+                            TBD
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-3 publication-title is-bold">
+                            <span style="vertical-align: middle">MC<sup>2</sup></span>
+                        </h1>
+                        <h2 class="subtitle is-4 publication-subtitle">
+                            Towards Transparent and Culturally-Aware NLP for Minority Languages in China
+                        </h2>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://luciusssss.github.io/">Chen Zhang*</a>,</span>
+                            <span class="author-block">
+                                <a href="https://kobayashikanna01.github.io/">Mingxu Tao*</a>,</span>
+                            <span class="author-block">
+                                <a href="https://andrewzhe.github.io/">Quzhe Huang*</a>,</span>
+                            <span class="author-block">
+                                <a href="https://github.com/Infinite-set">Jiuheng Lin*</a>,</span>
+                            <span class="author-block">
+                                <a href="https://zacharychenpk.github.io/">Zhibin Chen</a>,</span>
+                            <span class="author-block">
+                                <a href="https://yansongfeng.github.io/">Yansong Feng</a>
+                            </span>
+                        </div>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><b>Peking University</b></span>
+                        </div>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">ACL 2024</span>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+                                <span class="link-block">
+                                    <a href="https://arxiv.org/pdf/2311.08348"
+                                        class="external-link button is-normal is-rounded is-dark" target="_blank">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>Paper</span>
+                                    </a>
+                                </span>
+                                <!-- <span class="link-block">
+                                    <a href="https://arxiv.org/abs/2402.17644"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span> -->
+                                <!-- Code Link. -->
+                                <span class="link-block">
+                                    <a href="https://github.com/luciusssss/mc2_corpus"
+                                        class="external-link button is-normal is-rounded is-dark" target="_blank">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="https://huggingface.co/datasets/pkupie/mc2_corpus"
+                                        class="external-link button is-normal is-rounded is-dark" target="_blank">
+                                        <span class="icon">
+                                            <!-- <i class="far fa-images"></i> -->
+                                            <p style="font-size:18px">🤗</p>
+                                            <!-- 🔗 -->
+                                        </span>
+                                        <span>Dataset</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="https://huggingface.co/pkupie/mc2-xlmr-large"
+                                        class="external-link button is-normal is-rounded is-dark" target="_blank">
+                                        <span class="icon">
+                                            <!-- <i class="far fa-images"></i> -->
+                                            <p style="font-size:18px">🤗</p>
+                                            <!-- 🔗 -->
+                                        </span>
+                                        <span>Model</span>
+                                    </a>
+                                </span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="content has-text-centered">
+                <img src="static/images/mc2/mc2_example.png" alt="Example from the dataset" width="100%" />
+            </div>
+            <!-- </div> -->
+        </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h2 class="title is-3">Introduction</h2>
+
+                    <div class="content has-text-justified">
+                        <p>
+                            Current large language models demonstrate deficiencies in understanding low-resource
+                            languages, particularly the minority languages in China. This limitation stems from the
+                            scarcity of available pre-training data.</p>
+
+                        <p>To address this accessibility gap, we present <b>MC<sup>2</sup></b>, a <b>M</b>ultilingual
+                            <b>C</b>orpus of <b>M</b>inority Languages in <b>C</b>hina, which is the largest open-source
+                            corpus of its kind so far. It emcompasses four underrepresented languages: Tibetan, Uyghur,
+                            Kazakh (in the Kazakh Arabic script), and Mongolian (in the tranditional Mongolian script).
+                        </p>
+
+                        <ul>
+                            <li><b>Underrepresented Scripts</b>: MC<sup>2</sup> focus on the less common
+                                writing systems of Kazakh and Mongolian, i.e., Kazakh Arabic script and traditional
+                                Mongolian script, which have been long neglected in previous corpus construction
+                                efforts.
+                            </li>
+                            <li><b>Quality-Centric Collection</b>: Recognizing the prevalence of language contamination
+                                within existing corpora, we adopt a quality-centric solution for collecting
+                                MC<sup>2</sup>, prioritizing accuracy while enhancing diversity.
+                            </li>
+                            <li><b>Cultural Awareness</b>: Through geo-cultural probing, We underscore the importance of attending to the multiplicity of writing systems, which is closely related
+                                to the cultural awareness of the resulting models.
+                            </li>
+                            <li><b>Open Access</b>: The MC<sup>2</sup> corpus and related models are made public to the
+                                community. The models trained with MC<sup>2</sup> perform comparably to those trained
+                                with closed-source corpora.
+                        </ul>
+
+                        </p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COLLECTION SECTION -->
+    <section class="hero is-light is-small">
+        <div class="hero-body has-text-centered">
+            <h1 class="title is-1 section-title">
+                <span style="vertical-align: middle">Data Collection</span>
+            </h1>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Quality Issues in Previous Corpora</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            When auditing previous multilingual web corpora for low-resource languages, we find critical
+                            quality issues. These defects pose a significant threat to effective model training and
+                            might undermine the credibility of research findings.
+                        </p>
+                        <ul>
+                            <li><b>Language Misidentification</b>: Current
+                                language identification tools are prone to error, especially on languages with similar
+                                writing systems.
+                                We find that in CulturaX, 16% of the data in the Uyghur subset is actually in Kazakh or
+                                Arabic, languages utilizing scripts akin to that of Uyghur.
+                            </li>
+                            <li><b>Insufficient Data Cleaning</b>: The web crawls in previous corpora often contain unwanted texts such as sidebars, headers, and footers. 
+                                We sample 100 pages from the Tibetan corpus of CulturaX and our manual annotation shows that 42% contain headers or footers. 
+                                </li>
+
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column" style="margin-right: -20rem;">
+                    <div class="content has-text-centered">
+                        <img src="static/images/mc2/lang_misid.jpg" alt="dataset statistics" style="max-width: 42%;" />
+                        <p>
+                            Misidentification of a Kazakh page as Uyghur in CulturaX<br />
+                        </p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content has-text-centered">
+                        <img src="static/images/mc2/inadequate_cleaning_grey.jpg" alt="dataset keywords" style="max-width: 55%;" />
+                        <p>
+                            Insufficient data cleaning (gray) for a Tibetan web page in CulturaX<br />
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3" id="examples">Quality-Centric Data Collection in MC<sup>2</sup></h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            We propose a quality-centric solution for data collection of low-resource languages, which aims to ensure accuracy while improving the comprehensiveness and coverage of the data. 
+                            We hope to establish a reliable groundwork for subsequent language model training or linguistic research.
+                        </p>
+                        <p>
+                            Our collection procedure of MC<sup>2</sup> mainly consists of three steps:
+                        </p>
+                        <ul>
+                            <li><b>[Step 1] Web Crawling</b>: Our corpus is mainly made up of web crawls.
+                                We combine both human labor and AI assistance to prevent the flaws in the previous corpora.
+                                <ul>
+                                    <li><b>Language Identification</b>:We manually maintain a list of high-quality websites for each language of our study, to avoid language contamination resulting from mislabeling by identification tools.</li>
+                                    <li><b>Text Extraction</b>: For each website, we ask Github Copilot to analyze the HTML structure of a sampled web page and write a Python code to extract its title and main content. In this way, we can extract the wanted texts in the raw web crawls with high accuracy and efficiency.</li>
+                                </ul>
+                            </li>
+                            <li><b>[Step 2] Incorporation of Existing Datasets</b>: Thanks to the existing efforts in the community, we incorporate open-source resources into our corpus, including <a href="https://huggingface.co/datasets/uonlp/CulturaX" target="_blank">CulturaX</a>, <a href="https://huggingface.co/datasets/graelo/wikipedia" target="_blank">Wikipedia</a>, and <a href="http://nlg.cipsc.org.cn/evaluation_12.html" target="_blank">NLGIW 2023 Shared Task</a>.
+                            </li>
+                            <li><b>[Step 3] Deduplication and Filtering</b>: We take a series of measures of deduplication and filtering to ensure the high quality of our corpus.
+                            </li>
+                        </ul>
+
+                            <p> We compare the size of MC<sup>2</sup> with other corpora in the table below. </p>
+
+                    </div>
+
+                    <div class="box m-5">
+                        <div class="content has-text-centered">
+                            <img src="static/images/mc2/mc2_size.jpg" width="95%">
+                            <p>MC<sup>2</sup> (crawl) denotes the subset of our newly-collected web crawls. MC<sup>2</sup>  (full) is the complete set of our corpus, which additionally contains texts collected from existing resources.  </p>
+                            <p><sup>†</sup>For the Uyghur split of
+                                OSCAR and CulturaX, we report the data sizes after manual language re-identification.</p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="hero is-light is-small">
+        <div class="hero-body has-text-centered">
+            <h1 class="title is-1 section-title">
+                <span style="vertical-align: middle">Cultural Consideration</span>
+            </h1>
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Multiplicity of Writing Systems</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            <b>Many languages adopt distinct writing systems across various regions.</b> For instance, in China, minority languages such as Kazakh and Mongolian employ scripts that differ from the Cyrillic scripts used in Kazakhstan and Mongolia. Unfortunately, existing datasets predominantly concentrate on the more prevalent writing systems, neglecting the less common ones. In response to this issue, <b>MC<sup>2</sup> is the first effort to collect native corpora for the two underrepresented writing systems, i.e., the Kazakh Arabic script and the traditional Mongolian script.</b>
+                        </p>
+                    </div>
+
+                    <div class="box m-5">
+                        <div class="content has-text-centered">
+                            <img src="static/images/mc2/script_compare.jpg" width="45%">
+                            <p>Comparison between the different writing systems of Kazakh (kk) and Mongolian (mn).  </p>
+                            <p>The sample texts mean <i>hello</i>. We report the data sizes in CulturaX.</p>
+                        </div>
+                    </div>
+
+                    <div class="content has-text-justified">
+                        <p>
+                            To obtain a model for low-resource scripts, it is intuitive to transliterate the corpus in the high-resource scripts into low-resource ones for training. 
+                            However, there are no one-to-one conversion rules between scripts for languages such as Mongolian. 
+                            The transliteration between traditional and Cyrillic Mongolian is context-dependent and current open-source tools are far from perfect. 
+                            <b>Using noisy data transliterated from high-resource writing systems will greatly hinder the learning of low-resource writing systems.</b> 
+                        </p>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Cultural Differences Behind Writing Systems</h2>
+                    <div class="content has-text-justified">
+                        <p>For some languages such as Kazakh, we can achieve perfect transliteration between different writing systems using pre-defined rules.
+                            Nevertheless, <b>there exist disparities in the cultural backgrounds between the language variants using different scripts</b>. </p>
+
+                        <p>With the technique of probing, we investigate whether the training data collected from different writing systems will lead to distinct cultural knowledge in the resulting models.
+                            </p>
+
+                        <p> <b>We take the Kazakh language
+                            as our research target.</b> The Kazakh community
+                            in China uses the Arabic script while the
+                            Cyrillic script is adopted in Kazakhstan.
+                            <p>
+                    </div>
+
+
+                    <div class="content has-text-justified">
+                        <p>We train two distinct Kazakh language models based on XLMRoBERTa-large, each tailored to one of the writing systems. One is trained with 900M authentic Cyrillic Kazakh texts from CulturaX. And the other is trained with an equivalent volume of Arabic  Kazakh texts from our MC2 corpus. </p>
+                    </div>
+
+                    
+                    <div class="box m-5">
+                        <div class="content has-text-centered">
+                            <img src="static/images/mc2/probing_setting.jpg" width="60%">
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="content has-text-justified">
+                        <p>We subject
+                            the two models trained on different scripts to the
+                            cultural probing questions, which reflect the cultural differences between the two Kazakh communities.
+                            
+                            We query the Arabic
+                            Kazakh model with questions written in the Arabic
+                            script. Similarly, for the Cyrillic Kazakh model,
+                            we use questions written in the Cyrillic script. </p>
+                        
+                        <p> As shown in the following examples, the two models exhibit distinct cultural knowledge. 
+                            The Arabic Kazakh model is more familiar with the Kazakh community in China, while the Cyrillic Kazakh model is more knowledgeable about the Kazakh community in Kazakhstan. </p>
+                        </p>
+                    </div>
+
+                    <div id="results-carousel" class="carousel results-carousel">
+                        <div class="box m-5">
+                            <div class="content has-text-centered">
+                                <img src="static/images/mc2/probing_1.jpg" width="40%" />
+                                <p>Example 1: Holiday</p>
+                            </div>
+                        </div>
+                        <div class="box m-5">
+                            <div class="content has-text-centered">
+                                <img src="static/images/mc2/probing_2.jpg" width="40%" />
+                                <p>Example 2: Currency</p>
+                            </div>
+                        </div>
+                        <div class="box m-5">
+                            <div class="content has-text-centered">
+                                <img src="static/images/mc2/probing_3.jpg" width="48%" />
+                                <p>Example 3: Geography</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CT SECTION -->
+    <section class="hero is-light is-small">
+        <div class="hero-body has-text-centered">
+            <h1 class="title is-1 section-title">
+                <span style="vertical-align: middle">Continual Pretraining with MC<sup>2</sup></span>
+            </h1>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <div class="content has-text-justified">
+                        <p>
+                            To demonstrate the practical value of our corpus, we train two models with MC<sup>2</sup>
+                            and compare their performance with competitive counterparts.
+
+                        </p>
+                        <ul>
+                            <li><a href="https://huggingface.co/pkupie/mc2-xlmr-large"
+                                    target="_blank"><b>MC<sup>2</sup>XLMR-large</b></a>: An encoder-only model
+                                continually trained with MC<sup>2</sup> based on XLM-RoBERTa-large.</li>
+                            <li><a href="https://huggingface.co/pkupie/mc2-llama-13b"
+                                    target="_blank"><b>MC<sup>2</sup>Llama-13B</b></a>: A decoder-only model trained
+                                with MC<sup>2</sup> based on Llama-2-13B.</li>
+                        </ul>
+
+                        <p>
+                            We compare our models with the following baselines:
+                        </p>
+                        <ul>
+                            <li><b>Specialized models for minority languages in China</b>: CINO-large-v2, an
+                                encoder-only model trained with in-house data.</li>
+
+                            <li><b>General multilingual models</b>:</li>
+                            <ul>
+                                <li>Encoder-only: mBERT-base, XLM-RoBERTa-large</li>
+                                <li>Encoder-decoder: mT5-xxl, ByT5-xxl</li>
+                                <li>Decoder-only: BLOOM-7.1B</li>
+                            </ul>
+                        </ul>
+
+                        <p>
+                            We mainly test on text classfication (WCM-v2) and question answering (TibetanQA). For
+                            decoder-only models, we adopt the zero-shot transfer setting, i.e., fine-tuning on English
+                            data and testing on other languages. For other models, we adopt in-context learning.
+                        </p>
+                    </div>
+                    
+                    <div class="box m-5">
+                        <div class="content has-text-centered">
+                            <img src="static/images/mc2/exp_res_1.jpg" width="95%">
+                            <p>Performance of different models under the zero-shot transfer setting.</p>
+                            <img src="static/images/mc2/exp_res_2.jpg" width="45%">
+                            <p>Performance of different models under the in-context learning setting.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="content has-text-justified">
+                        <p>
+                            The results show that our models achieve competitive performance compared to the baselines.
+                            <b>Notably, MC<sup>2</sup>XLMR-large can exhibit comparable
+                            performance to CINO, which is trained on a
+                            closed-source corpus three times larger than MC<sup>2</sup>.</b>
+                            The continual pretraining with MC<sup>2</sup> is effective in enhancing the model's performance on low-resource languages.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">Citation</h2>
+            <pre><code>@article{zhang2023mc,
+    title={MC\^2: Towards Transparent and Culturally-Aware NLP for Minority Languages in China},
+    author={Zhang, Chen and Tao, Mingxu and Huang, Quzhe and Lin, Jiuheng and Chen, Zhibin and Feng, Yansong},
+    journal={arXiv preprint arXiv:2311.08348},
+    year={2024}
+}</code></pre>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>
+                            This website is website adapted from <a href="https://xxxiaol.github.io/QRData/">QRData</a>,
+                            <a href="https://nerfies.github.io/">Nerfies</a> and <a
+                                href="https://mathvista.github.io/">MathVista</a>, licensed under a <a rel="license"
+                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                                Commons Attribution-ShareAlike 4.0 International License</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
