@@ -162,11 +162,6 @@
                             in <b>aiding non-native speakers in translating completely unseen
                             languages</b>, which could contribute to the
                             preservation of linguistic diversity.</p>
-
-                       
-                        
-
-
                     </div>
                 </div>
             </div>
@@ -191,9 +186,7 @@
                             We present ZhuangBench, the first NLP research
                             suite for Zhuang, consisting of a <b>Zhuang-Chinese dictionary, a Zhuang-Chinese parallel corpus,
                             and a Zhuang-Chinese translation test set</b>. It
-                            can be used for various NLP tasks, such as word
-                            sense disambiguation, cross-lingual retrieval, and
-                            machine translation. Here, we especially focus on
+                            can be used for various NLP tasks. Here, we especially focus on
                             the task of performing Zhuang-Chinese translation
                             using the dictionary and parallel corpus.
                         </p>
@@ -257,11 +250,7 @@
                         <p>
                             DiPMT is designed for languages that current models perform moderately well (10 - 30 BLEU scores). We make extensions to
                             the DIPMT framework so that it can be applied to
-                            extremely low-resource languages. Leveraging the
-                            powerful reasoning capabilities of LLMs, we propose
-                            DiPMT++, a new method that allows LLMs
-                            to understand a completely new language with minimal
-                            resources.
+                            extremely low-resource languages. 
                         </p>
                     </div>
                     <h2 class="title is-3">Our Method: DiPMT++</h2>
@@ -270,40 +259,23 @@
                             Following DIPMT, we cast the on-the-fly machine translation as an ICL task and incorporate knowledge from bilingual dictionaries. DiPMT++ makes two key modifications to DIPMT as follows.
                         </p>
                         <ul>
-                            <li><b>Improved Lexical Coverage</b>: DIPMT only provides
-                                meanings for less frequent words in the sentence.
-                                For an unseen language, we need to provide
-                                translations for as many words in the sentence as
-                                possible to the model. However, not all words
-                                can be found in the dictionary for a low-resource language. <b>DiPMT++ attempts to improve lexical
+                            <li><b>Improved Lexical Coverage</b>: Not all words
+                                can be found in the dictionary for a low-resource language. DiPMT++ attempts to <b>improve lexical
                                 coverage of the prompt by revisiting traditional
                                 statistical methods and linguistic resources.</b>
                                 <ul>
-                                    <li><b>Fuzzy Matching</b>: Due to various morphological transformations, words appearing in a sentence may not be directly found in the dictionary. String
-                                        matching algorithms such as forward/backward
-                                        maximum matching can quickly find potentially
-                                        relevant entries from the dictionary.</li>
-                                    <li><b>Bilingual Lexicon Induction</b>: Even a small-scale parallel corpus might contain words not included in the dictionary. Traditional statistical
-                                        methods such as <a href="https://doi.org/10.1162/089120103321337421" target="_blank">GIZA++</a>
-                                        can efficiently mine bilingual lexicon from the corpus,
-                                        which could complement the dictionary.</li>
+                                    <li><b>Fuzzy Matching</b>: Finding words that may not be directly found in the dictionary due to various morphological transformations.</li>
+                                    <li><b>Bilingual Lexicon Induction</b>: Mining bilingual lexicon from the corpus using traditional statistical
+                                        methods such as <a href="https://doi.org/10.1162/089120103321337421" target="_blank">GIZA++</a>.</li>
                                     <li>
-                                        <b>Synonym Expansion</b>: When translating a
-                                        word from a high-resource language, it is not always
-                                        possible to find a direct translation in the
-                                        dictionary. However, the dictionary may contain
-                                        entries for synonyms of the word. This problem
-                                        can be alleviated by expanding the dictionary to
-                                        include a list of synonyms
+                                        <b>Synonym Expansion</b>: Expanding the dictionary by including a list of synonyms.
                                     </li>
                                 </ul>
                             </li>
-                            <li><b>Syntactically-Informed Exemplar</b>: DiPMT++ attempts to dynamically
-                                select exemplars with higher relevance
-                                and encourage models to infer elementary syntactic
-                                information from the exemplars. For a testing
-                                instance, its exemplars are retrieved from a
-                                parallel corpus. We apply <a href="https://www.nowpublishers.com/article/Details/INR-019" target="_blank">BM25</a>,
+                            <li><b>Syntactically-Informed Exemplar</b>: DiPMT++ attempts to <b>dynamically
+                                select exemplars with higher relevance</b>
+                                and <b>encourage models to infer elementary syntactic
+                                information from the exemplars</b>. We apply <a href="https://www.nowpublishers.com/article/Details/INR-019" target="_blank">BM25</a>,
                                 a language-agnostic retrieval algorithm, for exemplar
                                 retrieval.</li>
                         </ul>
@@ -370,21 +342,13 @@
                             <b>Finetuning vs. Prompting</b>: Compared to the high expense of finetuning,
                                 prompting with DiPMT++ requires no training
                                 while delivering comparable or even superior performance
-                                when combined with larger models. Prompting Llama-2-7B-chat with DiPMT++ only lags finetuning by 0.6 BLEU on Chinese-to-Zhuang and by
-                                1.6 BLEU on Zhuang-to-Chinese. Despite having little prior
-                                knowledge about Zhuang, as evidenced by their
-                                poor performance in direct prompting, GPT-3.5 and
-                                GPT-4 achieve excellent results on the translation
-                                tasks of varying difficulty levels with the assistance
-                                of DiPMT++. </b>
+                                when combined with larger models. </b>
                         </p>
                         <p>
                             <b>DiPMT++ vs. DiPMT</b>: Although useful for mid-source languages,
                             the original DIPMT has limited ability to assist
                             LLMs in understanding a completely new language.
-                            Even Qwen-72B-chat, the largest version of
-                            Qwen-chat, achieves only 5.1 BLEU on Chinese-to-
-                            Zhuang translation. After introducing two simple
+                            After introducing two simple
                             extensions, DiPMT++ activate the reasoning ability
                             of LLMs and greatly boost the performance. </b>
                         </p>
@@ -392,10 +356,10 @@
                             <b>Model Scale</b>: Regarding model scales, we observe
                             that the performance steadily improves with
                             the increase of model parameters for Llama-2 and Qwen.  It is worth noting that
-                            the open-source Qwen-72B-chat performs comparably
+                            <b>the open-source Qwen-72B-chat performs comparably
                             to the closed-source GPT-4 on the Chinese-to-Zhuang task,
                             which is an encouraging result for more transparent
-                            and reproducible research on low-resource NLP.</b>
+                            and reproducible research on low-resource NLP</b>.
                         </p>
                     </div>
 
@@ -414,7 +378,7 @@ by current LLMs.
                         </p>
 
                         <p>
-                            We report preliminary results on MTOB. DiPMT++ outperforms the baseline in
+                             DiPMT++ outperforms the baseline in
 the original paper of MTOB across most settings.
 This further proves that DiPMT++ is a languageagnostic
 framework and can adapt to different lowresource
@@ -504,13 +468,6 @@ languages without extra effort.
                     </div>
 
                     <div class="content has-text-justified">
-                        <p>
-                            <b>Surprisingly, with the provided linguistic
-resources, the participants can properly translate
-simple sentences written in an unseen language
-into their native language.</b> Despite costing much time, the average BLEU scores of their translations
-are 10+ points higher than those of the LLM.
-                        </p>
                         
                         <p>
                             <b>Providing initial translation output from the
@@ -521,19 +478,11 @@ the improvement is 2.9 BLEU for Zhuang-to-Chinese translation.
                         </p>
                             
                         <p>
-                        <b>Furthermore, the LLM greatly boosts the efficiency
+                        <b>The LLM greatly boosts the efficiency
                             of Chinese-to-Zhuang translation.</b> The participants save
                             17% of their time on average, as they can leverage
                             the LLM’s output rather than crafting translations
-                            from scratch. For Zhuang-to-Chinese translation, we observe no
-                            obvious difference in terms of efficiency between
-                            the two settings. It is probably because in the Human
-                            Only setting, the participants, who are native
-                            Chinese speakers, excel in identifying plausible
-                            Chinese words from the given prompt and structuring
-                            them into coherent sentences. This process
-                            requires less time than meticulously verifying the
-                            LLM-generated output.
+                            from scratch. 
                         </p>
 
                         <p>
