@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KWZSG6PHY8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-KWZSG6PHY8');
+    </script>
+
+    <script src="https://kit.fontawesome.com/f8ddf9854a.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="description"
+        content="Teaching Large Language Models an Unseen Language on the Fly">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ZhuangBench</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <!-- <link rel="icon" href="./static/images/icon.svg"> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/explorer-index.js"></script>
+    <script src="./static/js/question_card.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+
+                <a class="navbar-item" href="https://luciusssss.github.io">
+                    <span class="icon">
+                        <i class="fas fa-home"></i>
+                    </span>
+                </a>
+                <a class="navbar-item" href="https://luciusssss.github.io/proj/mc2">
+                    MC<sup>2</sup> Corpus
+                </a>
+                <a class="navbar-item" href="https://luciusssss.github.io/proj/zhuangbench">
+                    <b>ZhuangBench</b>
+                </a>
+                <!-- <a class="navbar-item" href="https://luciusssss.github.io/proj/mlic_eval">
+                    MLiC-Eval
+                </a> -->
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        More
+                    </a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="">
+                            TBD
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-3 publication-title is-bold">
+                            <span style="vertical-align: middle">Teaching Large Language Models an Unseen Language on the Fly</span>
+                        </h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://luciusssss.github.io/">Chen Zhang</a>,</span>
+                            <span class="author-block">
+                                <a href="https://xxxiaol.github.io/">Xiao Liu</a>,</span>
+                            <span class="author-block">
+                                <a href="https://github.com/Infinite-set">Jiuheng Lin</a>,</span>
+                            <span class="author-block">
+                                <a href="https://yansongfeng.github.io/">Yansong Feng</a>
+                            </span>
+                        </div>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><b>Peking University</b></span>
+                        </div>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">ACL 2024 Findings</span>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+                                <span class="link-block">
+                                    <a href="https://arxiv.org/pdf/2402.19167"
+                                        class="external-link button is-normal is-rounded is-dark" target="_blank">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>Paper</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="https://github.com/luciusssss/ZhuangBench"
+                                        class="external-link button is-normal is-rounded is-dark" target="_blank">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code & Data</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="content has-text-centered">
+                <img src="static/images/zhuangbench/zhuang_first_fig.jpg" alt="Example from the dataset" width="80%" />
+            </div>
+            <!-- </div> -->
+        </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h2 class="title is-3">Introduction</h2>
+
+                    <div class="content has-text-justified">
+                        <p>
+                            Existing large language models struggle to support numerous low-resource languages, particularly the extremely low-resource ones, for which there is minimal training data available for effective parameter updating. 
+                            We thus investigate <b>whether LLMs can learn a new language on the fly solely through prompting</b>. <p>
+                        <p>To study this question, we collect <b>a research suite for <a href="https://en.wikipedia.org/wiki/Zhuang_languages" target="_blank">Zhuang</a> (壮语, Vahcuengh), a language supported by no LLMs currently</b>. We introduce DiPMT++, a framework for adapting LLMs to unseen languages by in-context learning. <b>Using a dictionary and 5K parallel sentences only, DiPMT++ significantly enhances the performance of GPT-4</b> from 0 to 16 BLEU for Chinese-to-Zhuang translation and achieves 32 BLEU for Zhuang-to-Chinese translation. We also validate the effectiveness of our framework on Kalamang, another unseen language. </p>
+                        
+                        <p>
+                            Furthermore, we
+                            demonstrate the practical utility of DiPMT++
+                            in <b>aiding non-native speakers in translating completely unseen
+                            languages</b>, which could contribute to the
+                            preservation of linguistic diversity.</p>
+
+                       
+                        
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DATA SECTION -->
+    <section class="hero is-light is-small">
+        <div class="hero-body has-text-centered">
+            <h1 class="title is-1 section-title">
+                <span style="vertical-align: middle">Dataset: ZhuangBench</span>
+            </h1>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <div class="content has-text-justified">
+                        <p>
+                            We present ZhuangBench, the first NLP research
+                            suite for Zhuang, consisting of a <b>Zhuang-Chinese dictionary, a Zhuang-Chinese parallel corpus,
+                            and a Zhuang-Chinese translation test set</b>. It
+                            can be used for various NLP tasks, such as word
+                            sense disambiguation, cross-lingual retrieval, and
+                            machine translation. Here, we especially focus on
+                            the task of performing Zhuang-Chinese translation
+                            using the dictionary and parallel corpus.
+                        </p>
+                        <ul>
+                            <li><b>Dictionary</b>: The Zhuang-Chinese dictionary is
+                                collected from <a href="https://zha_zho.en-academic.com/" target="_blank">an online dictionary site</a>, with
+                                16,031 Zhuang words.
+                            </li>
+                            <li><b>Parallel Corpus</b>: The parallel corpus contains
+                                4,944 Zhuang-Chinese sentence pairs from multiple
+                                sources, includig textbooks and government reports. 
+                                </li>
+                            <li><b>Translation Test Set</b>: We provide a hold-out test
+                                set with 200 sentence pairs for evaluation. It includes
+                                instances of three difficulty levels: 75 easy
+                                instances, 60 medium ones, and 65 hard ones. These instances are collected from textbooks and the official <b><a href="http://mzw.gxzf.gov.cn/gzyw/tzgg/t16674740.shtml" target="_blank">Zhuang Language Proficiency Test</a></b> (Vahcuengh Sawcuengh Suijbingz Gaujsi, V.S.S.G.)
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <div class="box m-5">
+                        <div class="content has-text-centered">
+                            <img src="static/images/zhuangbench/zhuangbench_difficulty.jpg" width="80%">
+                            <p>Examples of three difficulty levels in ZhuangBench </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- METHOD SECTION -->
+    <section class="hero is-light is-small">
+        <div class="hero-body has-text-centered">
+            <h1 class="title is-1 section-title">
+                <span style="vertical-align: middle">Method: DiPMT++</span>
+            </h1>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <div class="content has-text-justified">
+
+                        <p>
+                            We introduce <b>DiPMT++, a language-agnostic framework to adapt LLMs to an unseen language efficiently</b>. It can serve as a strong baseline for the machine translation task in ZhuangBench.
+                        </p>
+                    </div>
+                    <h2 class="title is-3">Preliminary: DiPMT</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Our method is built upon <a href="https://arxiv.org/abs/2302.07856" target="_blank">DiPMT</a>, a prompting-based method for low-resource language translation. Given a source sentence, the model looks up in the dictionary for the meaning
+                            of rare words and adds them to the prompt directly
+                            with the format <i>in this context, the word “[source
+                            word]” means “[target word]”</i>.
+                        </p>
+
+                        <p>
+                            DiPMT is designed for languages that current models perform moderately well (10 - 30 BLEU scores). We make extensions to
+                            the DIPMT framework so that it can be applied to
+                            extremely low-resource languages. Leveraging the
+                            powerful reasoning capabilities of LLMs, we propose
+                            DiPMT++, a new method that allows LLMs
+                            to understand a completely new language with minimal
+                            resources.
+                        </p>
+                    </div>
+                    <h2 class="title is-3">Our Method: DiPMT++</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Following DIPMT, we cast the on-the-fly machine translation as an ICL task and incorporate knowledge from bilingual dictionaries. DiPMT++ makes two key modifications to DIPMT as follows.
+                        </p>
+                        <ul>
+                            <li><b>Improved Lexical Coverage</b>: DIPMT only provides
+                                meanings for less frequent words in the sentence.
+                                For an unseen language, we need to provide
+                                translations for as many words in the sentence as
+                                possible to the model. However, not all words
+                                can be found in the dictionary for a low-resource language. <b>DiPMT++ attempts to improve lexical
+                                coverage of the prompt by revisiting traditional
+                                statistical methods and linguistic resources.</b>
+                                <ul>
+                                    <li><b>Fuzzy Matching</b>: Due to various morphological transformations, words appearing in a sentence may not be directly found in the dictionary. String
+                                        matching algorithms such as forward/backward
+                                        maximum matching can quickly find potentially
+                                        relevant entries from the dictionary.</li>
+                                    <li><b>Bilingual Lexicon Induction</b>: Even a small-scale parallel corpus might contain words not included in the dictionary. Traditional statistical
+                                        methods such as <a href="https://doi.org/10.1162/089120103321337421" target="_blank">GIZA++</a>
+                                        can efficiently mine bilingual lexicon from the corpus,
+                                        which could complement the dictionary.</li>
+                                    <li>
+                                        <b>Synonym Expansion</b>: When translating a
+                                        word from a high-resource language, it is not always
+                                        possible to find a direct translation in the
+                                        dictionary. However, the dictionary may contain
+                                        entries for synonyms of the word. This problem
+                                        can be alleviated by expanding the dictionary to
+                                        include a list of synonyms
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><b>Syntactically-Informed Exemplar</b>: DiPMT++ attempts to dynamically
+                                select exemplars with higher relevance
+                                and encourage models to infer elementary syntactic
+                                information from the exemplars. For a testing
+                                instance, its exemplars are retrieved from a
+                                parallel corpus. We apply <a href="https://www.nowpublishers.com/article/Details/INR-019" target="_blank">BM25</a>,
+                                a language-agnostic retrieval algorithm, for exemplar
+                                retrieval.</li>
+                        </ul>
+                    </div>
+
+                    <div class="box m-5">
+                        <div class="content has-text-centered">
+                            <img src="static/images/zhuangbench/zhuang_example.jpg" width="60%">
+                            <p>Illustration of DiPMT++</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="hero is-light is-small">
+        <div class="hero-body has-text-centered">
+            <h1 class="title is-1 section-title">
+                <span style="vertical-align: middle">Experiments</span>
+            </h1>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Baselines</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            We compare our method with the following baselines:
+                        </p>
+                        <ul>
+                            <li><b>Finetuning</b>: Finetuning models
+                                with parallel sentences.</li>
+
+                            <li><b>Direct Prompting</b>: Directly asking
+                                LLMs to perform translations without providing
+                                ICL exemplars, which, to some extent, reflects
+                                whether the LLM already knows the language.</li>
+                            <li><b>DiPMT</b>: The original DiPMT method.</li>
+                        </ul>
+
+                        <p>
+                            We report the BLEU and chrF scores of different methods on the ZhuangBench test set.
+                        </p>
+                    </div>
+                    
+
+
+                    <h2 class="title is-3">Results on ZhuangBench</h2>
+                    <div class="box m-5">
+                        <div class="content has-text-centered">
+                            <img src="static/images/zhuangbench/zhuangbench_results.png" width="90%">
+                            <p>Results of different methods on ZhuangBench</p>
+                        </div>
+                    </div>
+
+
+                    <div class="content has-text-justified">
+                        <p>
+                            <b>Finetuning vs. Prompting</b>: Compared to the high expense of finetuning,
+                                prompting with DiPMT++ requires no training
+                                while delivering comparable or even superior performance
+                                when combined with larger models. Prompting Llama-2-7B-chat with DiPMT++ only lags finetuning by 0.6 BLEU on Chinese-to-Zhuang and by
+                                1.6 BLEU on Zhuang-to-Chinese. Despite having little prior
+                                knowledge about Zhuang, as evidenced by their
+                                poor performance in direct prompting, GPT-3.5 and
+                                GPT-4 achieve excellent results on the translation
+                                tasks of varying difficulty levels with the assistance
+                                of DiPMT++. </b>
+                        </p>
+                        <p>
+                            <b>DiPMT++ vs. DiPMT</b>: Although useful for mid-source languages,
+                            the original DIPMT has limited ability to assist
+                            LLMs in understanding a completely new language.
+                            Even Qwen-72B-chat, the largest version of
+                            Qwen-chat, achieves only 5.1 BLEU on Chinese-to-
+                            Zhuang translation. After introducing two simple
+                            extensions, DiPMT++ activate the reasoning ability
+                            of LLMs and greatly boost the performance. </b>
+                        </p>
+                        <p>
+                            <b>Model Scale</b>: Regarding model scales, we observe
+                            that the performance steadily improves with
+                            the increase of model parameters for Llama-2 and Qwen.  It is worth noting that
+                            the open-source Qwen-72B-chat performs comparably
+                            to the closed-source GPT-4 on the Chinese-to-Zhuang task,
+                            which is an encouraging result for more transparent
+                            and reproducible research on low-resource NLP.</b>
+                        </p>
+                    </div>
+
+
+                    <h2 class="title is-3">Results on MTOB</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            It is
+extremely hard to identify a language completely
+unseen by current LLMs and collect enough resources
+for it. Besides ZhuangBench, the only
+suitable evaluation dataset is <a href="https://lukemelas.github.io/mtob/" target="_blank">MTOB</a>. It consists of
+translation tasks between English (eng) and Kalamang
+(kgv), another low-resource language unseen
+by current LLMs.
+                        </p>
+
+                        <p>
+                            We report preliminary results on MTOB. DiPMT++ outperforms the baseline in
+the original paper of MTOB across most settings.
+This further proves that DiPMT++ is a languageagnostic
+framework and can adapt to different lowresource
+languages without extra effort.
+                        </p>
+                        
+                    </div>
+
+                    <div class="box m-5">
+                        <div class="content has-text-centered">
+                            <img src="static/images/zhuangbench/mtob.png" width="35%">
+                            <p>Results of different methods on MTOB</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="hero is-light is-small">
+        <div class="hero-body has-text-centered">
+            <h1 class="title is-1 section-title">
+                <span style="vertical-align: middle">Human Study</span>
+            </h1>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <div class="content has-text-justified">
+                        <p>
+                            We conduct a human study to demonstrate the
+                            effectiveness of DiPMT++ in aiding non-native speakers
+                            in translating completely unseen languages. We
+                            recruit 6 participants who are native Chinese speakers
+                            and have no prior knowledge of Zhuang. The results show that <b>we can use LLMs to assist humans
+                            in understanding an extremely low-resource
+                            language, even if both the LLMs and the humans
+                            have no prior knowledge about this language</b>.
+                        </p>
+                        
+                    </div>
+                    <div class="box m-5">
+                        <div class="content has-text-centered">
+                            <img src="static/images/zhuangbench/interface.png" width="90%">
+                            <p>Interface for LLM assisted translation</p>
+                        </div>
+                    </div>
+                    
+                    <div class="content has-text-justified">
+                        <p>
+                            We compare three settings:
+
+                            <ul>
+                                <li>
+                                    <b>LLM Only</b>: An LLM is prompted with DiPMT++ and outputs a translation.
+                                </li>
+                                <li>
+                                    <b>Human Only</b>: We ask
+                                    humans to use the given linguistic resources (i.e.,
+                                    a dictionary and a corpus of parallel sentences) to
+                                    perform the translation.
+                                </li>
+                                <li>
+                                    <b>Human + LLM</b>:We
+                                    provide humans with an LLM for assistance, in
+                                    addition to the linguistic resources. Humans can
+                                    refer to the initial translation results from the LLM.
+                                </li>
+                            </ul>
+
+                        </p>
+                        
+                    </div>
+
+                    <div class="box m-5">
+                        <div class="content has-text-centered">
+                            <img src="static/images/zhuangbench/human_study_results.png" width="45%">
+                            <p>Average time for translating an instance and the
+                                translation performance in the user study. </p>
+                            <p>The numbers
+                                in the Score column are BLEU and chrF.</p>
+                        </div>
+                    </div>
+
+                    <div class="content has-text-justified">
+                        <p>
+                            <b>Surprisingly, with the provided linguistic
+resources, the participants can properly translate
+simple sentences written in an unseen language
+into their native language.</b> Despite costing much time, the average BLEU scores of their translations
+are 10+ points higher than those of the LLM.
+                        </p>
+                        
+                        <p>
+                            <b>Providing initial translation output from the
+LLM yields improvement in human translation
+quality.</b> For Chinese-to-Zhuang translation, the LLM helps increase
+the human performance by 2.5 BLEU while
+the improvement is 2.9 BLEU for Zhuang-to-Chinese translation.
+                        </p>
+                            
+                        <p>
+                        <b>Furthermore, the LLM greatly boosts the efficiency
+                            of Chinese-to-Zhuang translation.</b> The participants save
+                            17% of their time on average, as they can leverage
+                            the LLM’s output rather than crafting translations
+                            from scratch. For Zhuang-to-Chinese translation, we observe no
+                            obvious difference in terms of efficiency between
+                            the two settings. It is probably because in the Human
+                            Only setting, the participants, who are native
+                            Chinese speakers, excel in identifying plausible
+                            Chinese words from the given prompt and structuring
+                            them into coherent sentences. This process
+                            requires less time than meticulously verifying the
+                            LLM-generated output.
+                        </p>
+
+                        <p>
+                            Besides aiding humans
+in translation, <b>the LLMs enhanced with the
+DiPMT++ framework have broader applications
+for low-resource languages</b>. These include education
+for underrepresented languages, preservation
+of endangered languages, and research into historical
+or extinct languages. We anticipate that by
+these techniques, researchers can better contribute
+to the linguistic diversity worldwide.
+                        </p>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">Citation</h2>
+            <pre><code>@article{zhang2024teaching,
+    title={Teaching Large Language Models an Unseen Language on the Fly},
+    author={Zhang, Chen and Liu, Xiao and Lin, Jiuheng and Feng, Yansong},
+    journal={arXiv preprint arXiv:2402.19167},
+    year={2024}
+}</code></pre>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>
+                            This website is website adapted from <a href="https://xxxiaol.github.io/QRData/">QRData</a>,
+                            <a href="https://nerfies.github.io/">Nerfies</a> and <a
+                                href="https://mathvista.github.io/">MathVista</a>, licensed under a <a rel="license"
+                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                                Commons Attribution-ShareAlike 4.0 International License</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
