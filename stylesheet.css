@@ -7,6 +7,104 @@
   --bg: #f8fafc;
   --card-bg: #ffffff;
   --pku-red: #8c0000;
+  --border-color: #edf2f7;
+  --hiring-bg: #fffaf0;
+  --hiring-border: #ed8936;
+  --hover-bg: #f1f5f9;
+}
+
+/* 夜间模式变量 */
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --card-bg: #1e293b;
+  --text-main: #e2e8f0;
+  --text-light: #94a3b8;
+  --heading: #f8fafc;
+  --primary-light: #1e293b;
+  --primary: #38bdf8;
+  /* 稍微调亮蓝色以适应深色背景 */
+  --border-color: #334155;
+  --hiring-bg: #2d2a24;
+  /* 深色调的橙色背景 */
+  --hiring-border: #f6ad55;
+  --hover-bg: #334155;
+}
+
+/* 微调原有样式以支持变量 */
+#container {
+  background: var(--card-bg);
+  /* 确保背景使用变量 */
+}
+
+.tabs-nav {
+  background: var(--card-bg);
+  /* 确保粘性导航也跟随变色 */
+}
+
+.pub-card:hover {
+  background: var(--primary-light);
+  /* 使用变量代替硬编码的 #f1f5f9 */
+}
+
+.social-links a {
+  border-color: var(--text-light);
+  color: var(--text-main);
+}
+
+/* 主题切换按钮样式 */
+#theme-toggle {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  background: none;
+  border: 1px solid var(--text-light);
+  color: var(--text-main);
+  padding: 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: 0.2s;
+}
+
+#theme-toggle:hover {
+  background: var(--hover-bg); /* 使用我们专门定义的悬停背景变量 */
+  color: var(--primary);       /* 悬停时让图标颜色也变一下，增加反馈感 */
+  border-color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  #theme-toggle {
+    top: 20px;
+    right: 20px;
+  }
+  .tabs-nav {
+    display: flex;
+    flex-wrap: wrap;          /* 允许换行实现 2x2 布局 */
+    overflow: visible;        /* 关键：确保不产生任何方向的滚动条 */
+    border-bottom: none;      /* 移除容器底边，改由按钮底边代替 */
+    background: var(--card-bg);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .tab-btn {
+    flex: 0 0 50%;            /* 强制每个按钮占 50% 宽度 */
+    padding: 12px 5px;        /* 适当的内边距 */
+    font-size: 0.9rem;
+    text-align: center;
+    border-bottom: 2px solid var(--border-color); /* 统一底部线条 */
+    box-sizing: border-box;
+    white-space: nowrap;      /* 防止文字在按钮内部换行 */
+  }
+
+  .tab-btn.active::after {
+    bottom: -2px;             /* 让高亮蓝条覆盖在 border-bottom 之上 */
+    width: 100%;
+    left: 0;
+  }
+
 }
 
 * {
@@ -117,8 +215,8 @@ h1 {
 
 /* Hiring Box */
 .hiring-box {
-  background: #fffaf0;
-  border-left: 4px solid #ed8936;
+  background: var(--hiring-bg);
+  border-left: 4px solid var(--hiring-border);
   padding: 16px 20px;
   margin: 25px 0;
   border-radius: 4px;
@@ -127,11 +225,11 @@ h1 {
 /* Tab Navigation */
 .tabs-nav {
   display: flex;
-  border-bottom: 2px solid #edf2f7;
+  border-bottom: 2px solid var(--border-color);
   margin-bottom: 30px;
   position: sticky;
   top: 0;
-  background: white;
+  background: var(--card-bg);
   z-index: 10;
 }
 
@@ -195,7 +293,7 @@ section-title {
   color: var(--heading);
   margin: 50px 0 20px 0;
   padding-bottom: 8px;
-  border-bottom: 2px solid #edf2f7;
+  border-bottom: 2px solid var(--border-color);
 }
 
 .year-tag {
@@ -215,8 +313,8 @@ section-title {
 }
 
 .pub-card:hover {
-  background: #f1f5f9;
-  border-color: #edf2f7;
+  background: var(--hover-bg);
+  border-color: var(--border-color);
 }
 
 .pub-title {
