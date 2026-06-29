@@ -11,6 +11,14 @@
   --hiring-bg: #fffaf0;
   --hiring-border: #ed8936;
   --hover-bg: #f1f5f9;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s ease;
 }
 
 /* 夜间模式变量 */
@@ -20,91 +28,15 @@
   --text-main: #e2e8f0;
   --text-light: #94a3b8;
   --heading: #f8fafc;
-  --primary-light: #1e293b;
+  --primary-light: rgba(56, 189, 248, 0.12);
   --primary: #38bdf8;
-  /* 稍微调亮蓝色以适应深色背景 */
   --border-color: #334155;
   --hiring-bg: #2d2a24;
-  /* 深色调的橙色背景 */
   --hiring-border: #f6ad55;
   --hover-bg: #334155;
-}
-
-/* 微调原有样式以支持变量 */
-#container {
-  background: var(--card-bg);
-  /* 确保背景使用变量 */
-}
-
-.tabs-nav {
-  background: var(--card-bg);
-  /* 确保粘性导航也跟随变色 */
-}
-
-.pub-card:hover {
-  background: var(--primary-light);
-  /* 使用变量代替硬编码的 #f1f5f9 */
-}
-
-.social-links a {
-  border-color: var(--text-light);
-  color: var(--text-main);
-}
-
-/* 主题切换按钮样式 */
-#theme-toggle {
-  position: absolute;
-  top: 50px;
-  right: 50px;
-  background: none;
-  border: 1px solid var(--text-light);
-  color: var(--text-main);
-  padding: 8px;
-  border-radius: 12px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  transition: 0.2s;
-}
-
-#theme-toggle:hover {
-  background: var(--hover-bg); /* 使用我们专门定义的悬停背景变量 */
-  color: var(--primary);       /* 悬停时让图标颜色也变一下，增加反馈感 */
-  border-color: var(--primary);
-}
-
-@media (max-width: 768px) {
-  #theme-toggle {
-    top: 20px;
-    right: 20px;
-  }
-  .tabs-nav {
-    display: flex;
-    flex-wrap: wrap;          /* 允许换行实现 2x2 布局 */
-    overflow: visible;        /* 关键：确保不产生任何方向的滚动条 */
-    border-bottom: none;      /* 移除容器底边，改由按钮底边代替 */
-    background: var(--card-bg);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-
-  .tab-btn {
-    flex: 0 0 50%;            /* 强制每个按钮占 50% 宽度 */
-    padding: 12px 5px;        /* 适当的内边距 */
-    font-size: 0.9rem;
-    text-align: center;
-    border-bottom: 2px solid var(--border-color); /* 统一底部线条 */
-    box-sizing: border-box;
-    white-space: nowrap;      /* 防止文字在按钮内部换行 */
-  }
-
-  .tab-btn.active::after {
-    bottom: -2px;             /* 让高亮蓝条覆盖在 border-bottom 之上 */
-    width: 100%;
-    left: 0;
-  }
-
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -119,53 +51,91 @@ body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: var(--bg);
   color: var(--text-main);
-  line-height: 1.6;
+  line-height: 1.65;
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
   font-size: 1rem;
-  /* 1rem = 16px */
+  transition: background-color var(--transition-base), color var(--transition-base);
 }
 
 a {
   color: var(--primary);
   text-decoration: none;
-  transition: 0.2s;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+  border-bottom: 1px solid transparent;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: var(--primary);
+  border-bottom-color: currentColor;
 }
 
 /* Container Layout */
 #container {
   max-width: 960px;
-  margin: 40px auto;
+  margin: 48px auto;
   background: var(--card-bg);
-  padding: 50px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  padding: 56px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
   overflow: hidden;
   position: relative;
+  transition: background-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+/* 主题切换按钮 */
+#theme-toggle {
+  position: absolute;
+  top: 44px;
+  right: 48px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-light);
+  padding: 10px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-base);
+  box-shadow: var(--shadow-sm);
+}
+
+#theme-toggle:hover {
+  background: var(--hover-bg);
+  color: var(--primary);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+#theme-toggle:active {
+  transform: translateY(0);
 }
 
 /* Header / Bio */
 .profile-section {
   display: flex;
-  gap: 40px;
-  align-items: center;
-  margin-bottom: 40px;
+  gap: 44px;
+  align-items: flex-start;
+  margin-bottom: 44px;
 }
 
 .portrait-wrapper {
-  flex: 0 0 240px;
+  flex: 0 0 220px;
 }
 
 .portrait {
   width: 100%;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
   height: auto;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.portrait:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 .bio-wrapper {
@@ -173,37 +143,53 @@ a:hover {
 }
 
 h1 {
-  font-size: 2.4rem;
-  margin: 0 0 10px 0;
+  font-size: 2.5rem;
+  margin: 0 0 6px 0;
   color: var(--heading);
   font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.role-tag {
+  display: inline-block;
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 14px;
+}
+
+.bio-wrapper p {
+  margin: 0 0 14px 0;
 }
 
 .email-tag {
   background: var(--primary-light);
   color: var(--primary);
-  padding: 4px 12px;
+  padding: 5px 14px;
   border-radius: 20px;
-  font-family: monospace;
-  font-size: 0.95rem;
+  font-family: "SF Mono", Monaco, monospace;
+  font-size: 0.9rem;
   display: inline-block;
-  margin: 10px 0;
+  margin: 8px 0 0 0;
+  font-weight: 600;
 }
 
 .social-links {
-  margin-top: 20px;
+  margin-top: 22px;
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
 }
 
 .social-links a {
-  padding: 6px 16px;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  padding: 7px 18px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-main);
+  transition: var(--transition-base);
 }
 
 .social-links a:hover {
@@ -211,6 +197,9 @@ h1 {
   color: white;
   border-color: var(--primary);
   text-decoration: none;
+  border-bottom-color: transparent;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(11, 102, 178, 0.18);
 }
 
 /* Hiring Box */
@@ -218,19 +207,22 @@ h1 {
   background: var(--hiring-bg);
   border-left: 4px solid var(--hiring-border);
   padding: 16px 20px;
-  margin: 25px 0;
-  border-radius: 4px;
+  margin: 24px 0;
+  border-radius: var(--radius-sm);
+  font-size: 0.98rem;
 }
 
 /* Tab Navigation */
 .tabs-nav {
   display: flex;
   border-bottom: 2px solid var(--border-color);
-  margin-bottom: 30px;
+  margin-bottom: 32px;
   position: sticky;
   top: 0;
   background: var(--card-bg);
   z-index: 10;
+  padding-top: 8px;
+  transition: background-color var(--transition-base), border-color var(--transition-base);
 }
 
 .tab-btn {
@@ -242,7 +234,7 @@ h1 {
   font-weight: 600;
   color: var(--text-light);
   position: relative;
-  transition: 0.2s;
+  transition: color var(--transition-base);
 }
 
 .tab-btn:hover {
@@ -257,10 +249,18 @@ h1 {
   content: '';
   position: absolute;
   bottom: -2px;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  width: 0;
   height: 2px;
   background: var(--primary);
+  transform: translateX(-50%);
+  animation: tabSlide 0.3s ease forwards;
+}
+
+@keyframes tabSlide {
+  to {
+    width: 100%;
+  }
 }
 
 /* Tab Content Control */
@@ -276,7 +276,7 @@ h1 {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(8px);
   }
 
   to {
@@ -287,34 +287,53 @@ h1 {
 
 /* Content styles */
 section-title {
-  display: block;
-  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--heading);
-  margin: 50px 0 10px 0;
+  margin: 42px 0 14px 0;
   padding-bottom: 8px;
-  /* border-bottom: 2px solid var(--border-color); */
+  border-bottom: 1px solid var(--border-color);
+}
+
+section-title::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 22px;
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+section-title:first-of-type {
+  margin-top: 0;
 }
 
 .year-tag {
   font-weight: 800;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: var(--text-light);
-  margin: 30px 0 15px 0;
+  margin: 28px 0 12px 0;
   display: block;
 }
 
 .pub-card {
-  padding: 16px;
-  margin-bottom: 15px;
-  border-radius: 12px;
-  transition: 0.2s;
+  padding: 18px;
+  margin-bottom: 14px;
+  border-radius: var(--radius-md);
+  transition: var(--transition-base);
   border: 1px solid transparent;
+  border-left: 3px solid transparent;
+  position: relative;
 }
 
 .pub-card:hover {
   background: var(--hover-bg);
   border-color: var(--border-color);
+  border-left-color: var(--primary);
+  transform: translateX(2px);
 }
 
 .pub-title {
@@ -322,26 +341,28 @@ section-title {
   font-weight: 600;
   color: var(--heading);
   font-size: 1.05rem;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .pub-venue {
   display: inline-block;
   font-weight: 700;
   color: var(--primary);
-  margin: 4px 0;
+  margin: 5px 0;
+  font-size: 0.92rem;
 }
 
 .author-me {
   font-weight: 700;
-  text-decoration: underline;
+  color: var(--heading);
+  border-bottom: 1px dotted var(--text-light);
 }
 
 .lang-info {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--text-light);
   font-style: italic;
-  margin-top: 6px;
+  margin-top: 8px;
   display: block;
 }
 
@@ -350,38 +371,44 @@ ul {
 }
 
 li {
-  margin-bottom: 8px;
+  margin-bottom: 9px;
 }
 
-/* 回到顶部按钮样式 */
+.news-list li {
+  position: relative;
+  padding-left: 4px;
+}
+
+.news-list li::marker {
+  color: var(--primary);
+}
+
+/* 回到顶部按钮 */
 #backToTop {
   display: none;
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 28px;
+  right: 28px;
   z-index: 99;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--border-color);
   outline: none;
-  background: rgba(11, 102, 178, 0.15);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: var(--card-bg);
   color: var(--primary);
   cursor: pointer;
-  width: 45px;
-  height: 45px;
-  border-radius: 12px;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
   font-size: 20px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  box-shadow: var(--shadow-md);
 }
 
 #backToTop:hover {
   background: var(--primary);
   color: white;
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(11, 102, 178, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(11, 102, 178, 0.25);
+  border-color: var(--primary);
 }
 
 #backToTop svg {
@@ -394,26 +421,49 @@ li {
   stroke-linejoin: round;
 }
 
+/* Footer */
+footer {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  transition: border-color var(--transition-base);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   #container {
-    padding: 25px;
-    margin: 10px;
-    border-radius: 10px;
+    padding: 28px 22px;
+    margin: 12px;
+    border-radius: var(--radius-md);
+  }
+
+  #theme-toggle {
+    top: 20px;
+    right: 20px;
   }
 
   .profile-section {
     flex-direction: column;
     text-align: center;
+    align-items: center;
+    gap: 28px;
+    margin-bottom: 32px;
   }
 
   .portrait-wrapper {
-    flex: 0 0 180px;
-    width: 180px;
+    flex: 0 0 160px;
+    width: 160px;
   }
 
   .portrait {
     width: 100%;
+  }
+
+  h1 {
+    font-size: 2rem;
   }
 
   .social-links {
@@ -421,12 +471,41 @@ li {
   }
 
   .tabs-nav {
-    overflow-x: auto;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: visible;
+    border-bottom: none;
+    background: var(--card-bg);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    margin-bottom: 24px;
+  }
+
+  .tab-btn {
+    flex: 0 0 50%;
+    padding: 12px 5px;
+    font-size: 0.9rem;
+    text-align: center;
+    border-bottom: 2px solid var(--border-color);
+    box-sizing: border-box;
     white-space: nowrap;
   }
 
+  .tab-btn.active::after {
+    bottom: -2px;
+    width: 100%;
+    left: 0;
+    transform: none;
+    animation: none;
+  }
+
+  section-title {
+    font-size: 1.15rem;
+  }
+
   #backToTop {
-    bottom: 20px;
-    right: 20px;
+    bottom: 18px;
+    right: 18px;
   }
 }
